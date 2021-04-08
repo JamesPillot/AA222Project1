@@ -90,8 +90,20 @@ def optimize(f, g, x0, n, count, prob):
             x_next, v_next = momentum(g, x_last, v_last, alpha, B)
             x_last = x_next
             v_last = v_next
+        elif prob == "secret1":
+            alpha = .11925
+            B = .65
+            x_next, v_next = nesterov_momentum(g, x_last, v_last, alpha, B)
+            x_last = x_next
+            v_last = v_next
+        elif prob == "secret2":
+            alpha = .11925
+            B = .65
+            x_next, v_next = nesterov_momentum(g, x_last, v_last, alpha, B)
+            x_last = x_next
+            v_last = v_next
         else:
-            return -1
+            return float("nan")
         
 
     x_best = x_last
