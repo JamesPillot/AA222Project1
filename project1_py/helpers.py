@@ -206,9 +206,10 @@ def test_optimize(optimize):
         any_count_exceeded = False
         for seed in tqdm(range(500)):
             p = test()
+            # p.nolimit() # for plotting
             np.random.seed(seed)
             x0 = p.x0()
-            xb = optimize(p.f, p.g, x0, p.n, p.count, p.prob)
+            xb = optimize(p.f, p.g, x0, p.n, p.count, p.prob) 
             if p.count() > p.n:
                 any_count_exceeded = True
             p._reset()
