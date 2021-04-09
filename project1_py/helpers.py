@@ -6,6 +6,7 @@
 
 from tqdm import tqdm
 import numpy as np
+import matplotlib.pyplot as plt
 
 class OptimizationProblem:
 
@@ -206,7 +207,7 @@ def test_optimize(optimize):
         any_count_exceeded = False
         for seed in tqdm(range(500)):
             p = test()
-            # p.nolimit() # for plotting
+            # p.nolimit() - for debug
             np.random.seed(seed)
             x0 = p.x0()
             xb = optimize(p.f, p.g, x0, p.n, p.count, p.prob) 
@@ -235,4 +236,5 @@ def test_optimize(optimize):
 
     return
     
+
 

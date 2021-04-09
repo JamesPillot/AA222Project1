@@ -70,7 +70,6 @@ def optimize(f, g, x0, n, count, prob):
 
     x_last = x0
     v_last = np.zeros(len(x0))
-    # x_history = []
     while(count() < n):
         if prob == "simple1": # using nesterov momentum
             alpha = .1222
@@ -90,13 +89,13 @@ def optimize(f, g, x0, n, count, prob):
             x_next, v_next = momentum(g, x_last, v_last, alpha, B)
             x_last = x_next
             v_last = v_next
-        elif prob == "secret1":
+        elif prob == "secret1": # using nesterov momentum method
             alpha = .11925
             B = .65
             x_next, v_next = nesterov_momentum(g, x_last, v_last, alpha, B)
             x_last = x_next
             v_last = v_next
-        elif prob == "secret2":
+        elif prob == "secret2": # using nesterov momentum method
             alpha = .11925
             B = .65
             x_next, v_next = nesterov_momentum(g, x_last, v_last, alpha, B)
